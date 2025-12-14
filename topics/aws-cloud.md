@@ -332,9 +332,9 @@ This document is designed for:
 ┌───────▼────────┐
 │ RDS (Multi-AZ) │
 └────────────────┘
+
+
 ---
-
-
 
 **Key interview points**
 - ALB for Layer 7 routing
