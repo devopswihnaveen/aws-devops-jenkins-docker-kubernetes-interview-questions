@@ -325,8 +325,7 @@ EC2 (AZ-1) ---- EC2 (AZ-2)
         |
         └──RDS (Multi-AZ)
 
-
-
+```md
 ---
 
 ## 18. Hands-On Projects (Must for Interviews)
