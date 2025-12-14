@@ -312,9 +312,7 @@ A managed Kubernetes service where AWS manages the **control plane**.
 
 ---
 
-## 17. Architecture Diagrams
-
-### 17.1 Highly Available Web Application
+## 17. Architecture Diagrams - Highly Available Web Application
 
 ```text
 Users
@@ -325,7 +323,7 @@ ALB (Layer 7)
   |
 EC2 (AZ-1) ---- EC2 (AZ-2)
         |
-     RDS (Multi-AZ)
+        └──RDS (Multi-AZ)
 
 
 
