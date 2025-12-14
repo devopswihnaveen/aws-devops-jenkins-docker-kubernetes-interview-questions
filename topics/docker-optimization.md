@@ -57,3 +57,77 @@
         - **Restart the Container:** Sometimes, simply restarting the container with `docker restart <container_id>` can resolve transient issues.
         - **Check Docker Daemon Logs:** Review the Docker daemon logs for any errors or warnings that might indicate underlying issues.
         - **Update Docker:** Ensure you are using the latest version of Docker, as updates may fix known bugs.
+
+        ## Docker Image Optimization
+
+        16. **Why is reducing Docker image size important?**
+            - Smaller images reduce storage costs, improve deployment speed, decrease attack surface, and enable faster container startup times.
+
+        17. **What is a multi-stage Docker build?**
+            - A multi-stage build uses multiple FROM statements in a Dockerfile to create intermediate stages, allowing you to copy only necessary artifacts to the final image.
+
+        18. **How do multi-stage builds reduce image size?**
+            - They exclude build dependencies and intermediate files from the final image by copying only compiled/required artifacts from builder stages.
+
+        19. **What are Docker image optimization best practices?**
+            - Use minimal base images (alpine), combine RUN commands to reduce layers, remove unnecessary files, use .dockerignore, and leverage multi-stage builds.
+
+        20. **How do you use .dockerignore effectively?**
+            - List files and directories to exclude (node_modules, .git, .env) to prevent unnecessary content from being added to the image.
+
+        ### Example: Normal Dockerfile vs Multi-Stage Build
+
+        **Normal Dockerfile (Larger Image):**
+        ```dockerfile
+        FROM node:18
+        WORKDIR /app
+        COPY . .
+        RUN npm install
+        RUN npm run build
+        EXPOSE 3000
+        CMD ["npm", "start"]
+        ```
+        - **Issue:** Includes dev dependencies and build tools in final image.
+
+        **Multi-Stage Dockerfile (Optimized):**
+        ```dockerfile
+        # Stage 1: Builder
+        FROM node:18 AS builder
+        WORKDIR /app
+        COPY package*.json ./
+        RUN npm install
+        COPY . .
+        RUN npm run build
+
+        # Stage 2: Runtime
+        FROM node:18-alpine
+        WORKDIR /app
+        COPY --from=builder /app/dist ./dist
+        COPY --from=builder /app/node_modules ./node_modules
+        COPY package*.json ./
+        EXPOSE 3000
+        CMD ["node", "dist/index.js"]
+        ```
+        - **Stage 1 (Builder):** Installs all dependencies and builds the application.
+        - **Stage 2 (Runtime):** Uses lightweight alpine image, copies only necessary artifacts, excluding dev dependencies.
+        - **Result:** Final image is significantly smaller.
+
+        **Go Application Example:**
+        ```dockerfile
+        # Stage 1: Build
+        FROM golang:1.20 AS builder
+        WORKDIR /src
+        COPY . .
+        RUN CGO_ENABLED=0 GOOS=linux go build -o /app/myapp .
+
+        # Stage 2: Runtime
+        FROM alpine:3.18
+        RUN apk --no-cache add ca-certificates
+        WORKDIR /app
+        COPY --from=builder /app/myapp .
+        EXPOSE 8080
+        CMD ["./myapp"]
+        ```
+        - **Stage 1:** Compiles Go code using full Go image.
+        - **Stage 2:** Uses minimal alpine image with only the compiled binary.
+        - **Benefit:** Reduces image from ~800MB to ~15MB.
