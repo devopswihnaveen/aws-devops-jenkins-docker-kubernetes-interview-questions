@@ -172,12 +172,12 @@ Jenkins can be hosted on EC2 or EKS for CI pipelines.
 Managing infrastructure using code.
 
 ### Terraform vs CloudFormation?
-| Terraform | CloudFormation |
-|---------|----------------|
-| Multi-cloud | AWS-only |
-| HCL | JSON/YAML |
-| State file | Managed by AWS |
-
+| Terraform    | CloudFormation |
+|--------------|----------------|
+| Multi-cloud  | AWS-only       |
+| HCL          | JSON/YAML      |
+| State file   | Managed by AWS |
+|--------------|----------------|
 ---
 
 ## 11. Containers on AWS
