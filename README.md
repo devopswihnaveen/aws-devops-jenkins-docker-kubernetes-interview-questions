@@ -356,3 +356,16 @@ Focused on Kubernetes, AWS, Terraform, CI/CD, and production-grade automation.
 ---
 
 ⭐ If this helped you, star the repo and share with fellow DevOps engineers!
+
+## 📁 Detailed Topic-Wise Resources
+
+Each topic has been expanded into dedicated markdown files for in-depth learning:
+
+- **[Kubernetes Deployments](./topics/kubernetes-deployments.md)** – Zero-downtime strategies, Blue-Green, Canary, Rolling updates
+- **[Docker Optimization](./topics/docker-optimization.md)** – Image size reduction, multi-stage builds, best practices
+- **[CI/CD Pipelines](./topics/cicd-pipelines.md)** – Jenkins security, metrics, automation, failure handling
+- **[AWS & Cloud](./topics/aws-cloud.md)** – IAM, CloudWatch, multi-region, cost optimization
+- **[Kubernetes Troubleshooting](./topics/kubernetes-troubleshooting.md)** – Pod debugging, ImagePullBackOff, performance monitoring
+- **[Terraform & IaC](./topics/terraform-iac.md)** – State management, modules, drift detection, rollback strategies
+- **[Secrets & Security](./topics/secrets-security.md)** – Secret management, RBAC, encryption, security scanning
+- **[Monitoring & Logging](./topics/monitoring-logging.md)** – Prometheus, ELK, centralized logging, alerting
