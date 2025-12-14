@@ -381,22 +381,27 @@ Kubernetes Services / Ingress (ALB)
 ### 17.3 Amazon EKS Architecture (Deep Dive)
 
 
-            AWS Managed Control Plane
-    ┌────────────────────────────────────┐
-    │ API Server | Scheduler | ETCD       │
-    └────────────────────────────────────┘
-                   │
-    ┌──────────────┼──────────────┐
-    │                              │
+## Amazon EKS Architecture (High-Level)
 
+```text
+                AWS Managed Control Plane
+        ┌────────────────────────────────────┐
+        │  API Server | Scheduler | ETCD     │
+        └────────────────────────────────────┘
+                        │
+            ┌───────────┼───────────┐
+            │                           │
 
-┌───────▼────────┐ ┌───────▼────────┐
-│ Worker Node 1 │ │ Worker Node 2 │
-│ (Managed NG) │ │ (Managed NG) │
-│ ┌─────────┐ │ │ ┌─────────┐ │
-│ │ Pod │ │ │ │ Pod │ │
-│ └─────────┘ │ │ └─────────┘ │
-└────────────────┘ └────────────────┘
+   ┌────────▼─────────┐     ┌────────▼─────────┐
+   │   Worker Node 1   │     │   Worker Node 2   │
+   │ (Managed NodeGrp) │     │ (Managed NodeGrp) │
+   │                   │     │                   │
+   │   ┌───────────┐  │     │   ┌───────────┐  │
+   │   │   Pod A   │  │     │   │   Pod B   │  │
+   │   └───────────┘  │     │   └───────────┘  │
+   │                   │     │                   │
+   └───────────────────┘     └───────────────────┘
+
 
 
 **Security flow**
