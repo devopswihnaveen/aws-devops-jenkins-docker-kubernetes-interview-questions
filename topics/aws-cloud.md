@@ -523,43 +523,42 @@ Zero-downtime deployments.
 
 ## 19. GitHub Repository Structure (Recommended)
 
+# aws-devops-projects
 
-
+```text
 aws-devops-projects/
 │
 ├── terraform/
-│ ├── vpc/
-│ ├── eks/
-│ └── rds/
+│   ├── vpc/
+│   ├── eks/
+│   └── rds/
 │
 ├── jenkins/
-│ └── Jenkinsfile
+│   └── Jenkinsfile
 │
 ├── docker/
-│ └── Dockerfile
+│   └── Dockerfile
 │
 ├── kubernetes/
-│ ├── deployment.yaml
-│ ├── service.yaml
-│ └── ingress.yaml
+│   ├── deployment.yaml
+│   ├── service.yaml
+│   └── ingress.yaml
 │
 ├── argocd/
-│ └── application.yaml
+│   └── application.yaml
 │
 └── README.md
-
-
 ---
 
 ## 20. How Interviewers Evaluate You
 
-| What You Show | Impact |
-|--------------|-------|
-| Diagrams | Architecture clarity |
-| Projects | Practical experience |
-| CI/CD | Real DevOps exposure |
-| EKS internals | Senior-level readiness |
-| Monitoring | SRE mindset |
+| What You Show  |         Impact       |
+|----------------|----------------------|
+| Diagrams       | Architecture clarity |
+| Projects       | Practical experience |
+| CI/CD          | Real DevOps exposure |
+| EKS internals  | Senior-level readiness |
+| Monitoring     | SRE mindset          |
 
 ---
 
