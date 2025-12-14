@@ -22,10 +22,9 @@ A **production-grade AWS DevOps interview handbook** covering concepts, architec
 14. High Availability & Disaster Recovery  
 15. Cost Optimization  
 16. Scenario-Based Interview Questions  
-17. Architecture Diagrams  
-18. Hands-On Projects  
-19. GitHub Repository Structure  
-20. How Interviewers Evaluate You  
+17. Hands-On Projects  
+18. GitHub Repository Structure  
+19. How Interviewers Evaluate You  
 
 ---
 
@@ -312,22 +311,8 @@ A managed Kubernetes service where AWS manages the **control plane**.
 
 ---
 
-## 17. Architecture Diagrams - Highly Available Web Application
 
-```text
-Users
-  |
-Route 53
-  |
-ALB (Layer 7)
-  |
-EC2 (AZ-1) ---- EC2 (AZ-2)
-        |
-        └──RDS (Multi-AZ)
-
----
-
-## 18. Hands-On Projects (Must for Interviews)
+## 17. Hands-On Projects (Must for Interviews)
 
 These projects demonstrate **real-world AWS DevOps experience** and are highly valued in interviews.
 
@@ -460,7 +445,7 @@ Achieve zero-downtime application deployments.
 
 ---
 
-## 19. GitHub Repository Structure (Recommended)
+## 18. GitHub Repository Structure (Recommended)
 
 A clean repository structure that interviewers expect:
 
