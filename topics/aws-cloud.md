@@ -24,7 +24,6 @@ A **production-grade AWS DevOps interview handbook** covering concepts, architec
 16. Scenario-Based Interview Questions  
 17. Hands-On Projects  
 18. GitHub Repository Structure  
-19. How Interviewers Evaluate You  
 
 ---
 
