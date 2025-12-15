@@ -10,9 +10,10 @@ This document contains **commonly expected interview questions with clear, real-
 I have designed and maintained CI/CD pipelines using **Jenkins/GitHub/GitLab**.  
 The pipeline typically includes:
 - Code checkout from Git
-- Build and unit testing
+- Build and unit testing 
 - Static code analysis
 - Docker image build
+- Docker image security vulnerabilities (CVEs) scan
 - Image push to registry
 - Deployment to Kubernetes using Helm or GitOps
 
