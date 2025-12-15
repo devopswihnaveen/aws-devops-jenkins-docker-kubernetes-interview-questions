@@ -298,8 +298,6 @@ Azure experience complements AWS skills.
 
 ---
 
-# Expected DevOps Interview Questions & Answers  
-## Based on AWS, Jenkins, Terraform, CI/CD, Kubernetes & GitOps Skillset
 
 This document contains **expected DevOps interview questions with structured, real-world answers**, aligned with **3–5 years of experience**.
 
