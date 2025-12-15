@@ -348,15 +348,5 @@ PaaS: Elastic Beanstalk
 
 SaaS: Gmail
 
-📌 INTERVIEW TIP
-
-Always explain:
-
-What it is
-
-Why it’s used
-
-Real-world example
-
 
 ---
