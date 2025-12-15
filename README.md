@@ -369,3 +369,13 @@ Each topic has been expanded into dedicated markdown files for in-depth learning
 - **[Terraform & IaC](./topics/terraform-iac.md)** – State management, modules, drift detection, rollback strategies
 - **[Secrets & Security](./topics/secrets-security.md)** – Secret management, RBAC, encryption, security scanning
 - **[Monitoring & Logging](./topics/monitoring-logging.md)** – Prometheus, ELK, centralized logging, alerting
+
+---
+
+### Author
+**Velanati Naveen Kumar**
+- DevOps Engineer  
+- CI/CD | AWS | Kubernetes | Terraform | GitOps | Automation
+- Connect with me: [LinkedIn](https://www.linkedin.com/in/naveenvelanati/)
+- 📞 +91 9848545101
+
