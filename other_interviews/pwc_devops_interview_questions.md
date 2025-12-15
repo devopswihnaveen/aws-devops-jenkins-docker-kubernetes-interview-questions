@@ -281,7 +281,8 @@ Concept
 Real-world usage
 Troubleshooting approach
 
-### Author
+
+## Author
 **Velanati Naveen Kumar**
 - DevOps Engineer  
 - CI/CD | AWS | Kubernetes | Terraform | GitOps | Automation
