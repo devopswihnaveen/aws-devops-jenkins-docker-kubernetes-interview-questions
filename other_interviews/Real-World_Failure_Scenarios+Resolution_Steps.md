@@ -344,5 +344,9 @@ When explaining troubleshooting:
 ---
 
 ### Author
-Cloud / DevOps Engineer  
-Production Troubleshooting | AWS | Docker | Kubernetes | Terraform
+**Velanati Naveen Kumar**
+- DevOps Engineer  
+- CI/CD | AWS | Kubernetes | Terraform | GitOps | Automation
+- Connect with me: [LinkedIn](https://www.linkedin.com/in/naveenvelanati/)
+- 📞 +91 9848545101
+
