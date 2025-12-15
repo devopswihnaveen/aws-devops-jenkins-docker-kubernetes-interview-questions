@@ -448,6 +448,7 @@ Achieve zero-downtime application deployments.
 
 A clean repository structure that interviewers expect:
 
+```text
 aws-devops-projects/
 │
 ├── terraform/
@@ -471,6 +472,7 @@ aws-devops-projects/
 │
 └── README.md
 
+```
 
 
 ---
