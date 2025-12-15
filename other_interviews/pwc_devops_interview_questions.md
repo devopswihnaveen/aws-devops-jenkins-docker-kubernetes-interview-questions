@@ -25,7 +25,7 @@ sort -hr → sort by size
 
 head -5 → top 5 results
 
-🔹 Python Scripting
+## 🔹 Python Scripting
 ## 2. Write a Python script to count how many times the word "ERROR" appears in a log file.
 ```text
 def count_errors(file_path):
@@ -40,7 +40,7 @@ print(count_errors("app.log"))
 ```
 Used in log analysis, monitoring, and alerting.
 
-🔹 AWS
+## 🔹 AWS
 ## 3. Difference between EC2, ECS, and EKS
 Service	Description	When to Use
 EC2	Virtual machines	Legacy / VM-based apps
@@ -95,7 +95,7 @@ Object storage	Block storage
 Highly durable	Attached to EC2
 Backups, static files	OS, databases
 
-🔹 Git
+## 🔹 Git
 ## 11. Git merge vs Git rebase
 Merge: Preserves history
 
@@ -110,7 +110,7 @@ git add
 
 git commit
 
-🔹 GitHub Actions
+## 🔹 GitHub Actions
 ## 13. How does a GitHub Actions workflow get triggered?
 Triggers include:
 
@@ -136,7 +136,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: npm test
-🔹 GitLab CI/CD
+## 🔹 GitLab CI/CD
 ## 15. GitHub Actions vs GitLab CI/CD
 GitHub Actions	GitLab CI
 GitHub native	GitLab native
@@ -176,10 +176,9 @@ Protected branch: Restricts pushes
 Protected variable: Available only in protected branches
 
 ## 21. Manual pipeline trigger in GitLab
-yaml
-Copy code
 when: manual
-🔹 Docker
+
+## 🔹 Docker
 ## 22. Docker image vs container
 Image → Blueprint
 
@@ -194,7 +193,7 @@ Improve security
 
 Separate build & runtime
 
-🔹 Kubernetes
+## 🔹 Kubernetes
 ## 24. Deployment vs StatefulSet vs DaemonSet
 Type	Use
 Deployment	Stateless apps
@@ -265,7 +264,7 @@ Check resource limits
 
 Fix application error
 
-🔹 Terraform
+## 🔹 Terraform
 ## 35. Terraform state file
 - Tracks infrastructure
 - Enables change detection
