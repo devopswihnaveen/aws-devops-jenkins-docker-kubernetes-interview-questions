@@ -261,6 +261,10 @@ Modification:
 
 ---
 
-### ⭐ Author
-Cloud / DevOps Engineer  
-Focused on AWS, ECS, EC2, Load Balancing, Security, and Scalable Architectures
+### Author
+**Velanati Naveen Kumar**
+- DevOps Engineer  
+- CI/CD | AWS | Kubernetes | Terraform | GitOps | Automation
+- Connect with me: [LinkedIn](https://www.linkedin.com/in/naveenvelanati/)
+- 📞 +91 9848545101
+
