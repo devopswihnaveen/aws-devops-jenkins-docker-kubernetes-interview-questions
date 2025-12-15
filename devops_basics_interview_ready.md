@@ -215,11 +215,9 @@ Improve collaboration
 
 A series of automated steps:
 
-Build
-
-Test
-
-Deploy
+- Build
+- Test
+- Deploy
 
 # 25. What is SSH and why use it?
 
@@ -227,9 +225,8 @@ Secure remote access using encryption.
 
 ## 26. Public key vs Private key?
 
-Public key → Server
-
-Private key → Client (secret)
+- Public key → Server
+- Private key → Client (secret)
 
 ## 27. VM vs Container?
 
@@ -260,28 +257,22 @@ Object storage for files.
 
 ## 33. How do you monitor application logs?
 
-Application logs
-
-CloudWatch
-
-ELK stack
-
-Grafana Loki
+- Application logs
+- CloudWatch
+- ELK stack
+- Grafana Loki
 
 ## 34. What are Prometheus and Grafana?
 
-Prometheus: Metrics collection
-
-Grafana: Visualization
+- **Prometheus**: Metrics collection
+- **Grafana**: Visualization
 
 ## 35. What is a YAML file?
 
 Human-readable configuration format.
 Used in:
-
-Kubernetes
-
-CI/CD pipelines
+- Kubernetes
+- CI/CD pipelines
 
 ## 36. What are environment variables?
 
@@ -328,18 +319,21 @@ curl -X GET https://api.example.com
 
 Stores container images.
 Examples:
-
-Docker Hub
-
-AWS ECR
+- Docker Hub
+- AWS ECR
 
 ## 45. IaaS vs PaaS vs SaaS?
 
-IaaS: EC2
-
-PaaS: Elastic Beanstalk
-
-SaaS: Gmail
+- IaaS: EC2
+- PaaS: Elastic Beanstalk
+- SaaS: Gmail
 
 
 ---
+
+### Author
+**Velanati Naveen Kumar**
+- DevOps Engineer  
+- CI/CD | AWS | Kubernetes | Terraform | GitOps | Automation
+- Connect with me: [LinkedIn](https://www.linkedin.com/in/naveenvelanati/)
+- 📞 +91 9848545101
