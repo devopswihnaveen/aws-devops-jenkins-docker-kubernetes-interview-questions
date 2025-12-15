@@ -287,22 +287,17 @@ CI/CD pipelines
 
 Dynamic values passed to apps at runtime.
 
-37. What is a build artifact?
+## 37. What is a build artifact?
 
 Output of build process:
-
-JAR
-
-WAR
-
-Docker image
+- JAR
+- WAR
+- Docker image
 
 ## 38. How do you roll back a deployment?
 
 Helm rollback
-
 Re-deploy previous version
-
 Git revert
 
 ## 39. What is a Helm chart?
@@ -312,10 +307,8 @@ Contains templates + values.
 
 ## 40. Blue-Green deployment (simple)?
 
-Two environments:
-
+- **Two environments:**
 Blue = live
-
 Green = new
 Switch traffic after testing.
 
