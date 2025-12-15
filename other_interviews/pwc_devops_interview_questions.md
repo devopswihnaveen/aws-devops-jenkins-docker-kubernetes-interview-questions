@@ -19,6 +19,7 @@ Explanation:
 find → finds files
 
 du -h → file size
+```
 
 sort -hr → sort by size
 
@@ -26,8 +27,7 @@ head -5 → top 5 results
 
 🔹 Python Scripting
 ## 2. Write a Python script to count how many times the word "ERROR" appears in a log file.
-python
-Copy code
+```text
 def count_errors(file_path):
     count = 0
     with open(file_path, "r") as file:
@@ -37,6 +37,7 @@ def count_errors(file_path):
     return count
 
 print(count_errors("app.log"))
+```
 Used in log analysis, monitoring, and alerting.
 
 🔹 AWS
