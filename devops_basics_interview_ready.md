@@ -308,8 +308,8 @@ Contains templates + values.
 ## 40. Blue-Green deployment (simple)?
 
 - **Two environments:**
-Blue = live
-Green = new
+- Blue = live
+- Green = new
 Switch traffic after testing.
 
 ## 41. What is a reverse proxy?
