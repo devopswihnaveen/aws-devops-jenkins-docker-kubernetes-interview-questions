@@ -462,5 +462,13 @@ Always explain:
 - **What trade-offs you accepted**
 
 
+---
+
+### Author
+**Velanati Naveen Kumar**
+- DevOps Engineer  
+- CI/CD | AWS | Kubernetes | Terraform | GitOps | Automation
+- Connect with me: [LinkedIn](https://www.linkedin.com/in/naveenvelanati/)
+- 📞 +91 9848545101
 
 
