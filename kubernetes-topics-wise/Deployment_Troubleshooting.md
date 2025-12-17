@@ -286,3 +286,312 @@
 - Review Helm values or deployment YAML
 - Update port configurations and redeploy
 - Standardize port allocation across microservices
+
+---
+
+# Kubernetes Deployment Failure Scenarios With Erroe Messages/Code
+
+## Scenario 1: CrashLoopBackOff  
+**What it means:**  
+The container starts but crashes repeatedly, and Kubernetes keeps restarting it.
+
+**How to troubleshoot & fix:**
+- Check container logs using `kubectl logs <pod>`
+- Describe the pod to review events
+- Verify application startup command and arguments
+- Check environment variables and config files
+- Inspect liveness/readiness probes (may be too aggressive)
+- Check resource limits (memory/CPU)
+- Fix application error or configuration and redeploy
+
+---
+
+## Scenario 2: ImagePullBackOff  
+**What it means:**  
+Kubernetes cannot pull the container image.
+
+**How to troubleshoot & fix:**
+- Verify image name and tag
+- Ensure image exists in registry
+- Check imagePullSecrets
+- Validate registry credentials
+- Ensure nodes have internet access
+- Fix permissions or image reference and redeploy
+
+---
+
+## Scenario 3: No Pod Created  
+**What it means:**  
+Deployment exists, but no pods are created.
+
+**How to troubleshoot & fix:**
+- Check deployment status
+- Verify replica count is greater than zero
+- Check namespace correctness
+- Inspect events for validation errors
+- Ensure no admission controller or policy is blocking pods
+- Fix deployment spec and reapply
+
+---
+
+## Scenario 4: kubectl apply fails  
+**What it means:**  
+Manifest fails validation or API server rejects it.
+
+**How to troubleshoot & fix:**
+- Check YAML syntax and indentation
+- Validate API version and kind
+- Run `kubectl apply --dry-run=client`
+- Ensure referenced resources exist (namespace, configmap, secret)
+- Fix errors and reapply the manifest
+
+---
+
+## Scenario 5: Pod stuck in Pending state  
+**What it means:**  
+Scheduler cannot place the pod on any node.
+
+**How to troubleshoot & fix:**
+- Describe pod and check events
+- Look for insufficient CPU/memory
+- Verify node availability
+- Check node selectors, taints, and tolerations
+- Verify PVC is bound
+- Add nodes or adjust resource requests
+
+---
+
+## Scenario 6: OOMKilled  
+**What it means:**  
+Container exceeded its memory limit and was killed.
+
+**How to troubleshoot & fix:**
+- Check pod status for `OOMKilled`
+- Review memory usage
+- Increase memory limits
+- Optimize application memory usage
+- Add proper resource requests and limits
+- Monitor memory usage continuously
+
+---
+
+## Scenario 7: Pod restarts frequently  
+**What it means:**  
+Application starts but keeps restarting.
+
+**How to troubleshoot & fix:**
+- Check container logs
+- Inspect liveness probes
+- Verify startup time vs probe delay
+- Check application crashes or dependency failures
+- Fix probes or application logic
+- Redeploy after stabilization
+
+---
+
+## Scenario 8: Exit Code 1  
+**What it means:**  
+Container exited due to an application-level error.
+
+**How to troubleshoot & fix:**
+- Inspect logs to identify failure reason
+- Validate startup script or command
+- Check environment variables and secrets
+- Verify file paths and permissions
+- Fix application error and redeploy
+
+---
+
+## Scenario 9: Deployment created, but no pod started  
+**What it means:**  
+Deployment exists but pods are not scheduled or created.
+
+**How to troubleshoot & fix:**
+- Check deployment conditions
+- Verify replica count
+- Ensure selector labels match pod labels
+- Check namespace mismatch
+- Review admission controller or policy restrictions
+- Fix deployment configuration
+
+---
+
+## Scenario 10: Pod Created but Init Container skipped  
+**What it means:**  
+Init container does not run as expected.
+
+**How to troubleshoot & fix:**
+- Verify init container definition
+- Check init container logs
+- Ensure correct image and command
+- Validate dependencies required by init container
+- Fix configuration and redeploy
+- Remember: init containers must succeed before main container starts
+
+---
+
+## Scenario 11: Wrap-up & Best Practices  
+**Key advice to prevent deployment failures:**
+- Always check pod events and logs first
+- Use resource requests and limits
+- Validate manifests before applying
+- Maintain environment parity (dev/stage/prod)
+- Use proper monitoring and alerting
+- Automate checks using CI/CD pipelines
+- Document known failure patterns and fixes
+
+---
+
+## Question 11: InitContainer Failing (CrashLoopBackOff)
+
+**Problem:**  
+InitContainer fails repeatedly and blocks the main container.
+
+**Troubleshooting & Resolution:**
+- Check init container logs using `kubectl logs <pod> -c <init-container>`
+- Describe pod to inspect events
+- Verify init container image and command
+- Check dependencies like DB, API, or file system access
+- Validate secrets and configmaps used by init container
+- Fix failure and redeploy  
+Note: Main container will not start until init container succeeds.
+
+---
+
+## Question 12: Sidecar Pattern Logging Issue
+
+**Problem:**  
+Application runs, but logs are not collected by the sidecar container.
+
+**Troubleshooting & Resolution:**
+- Verify shared volume between app and sidecar
+- Ensure log file paths match in both containers
+- Check sidecar container logs
+- Confirm file permissions on shared volume
+- Validate log rotation configuration
+- Fix volume mounts or permissions and redeploy
+
+---
+
+## Question 13: Pod Affinity Causing Latency
+
+**Problem:**  
+Pod affinity rules increase latency due to poor pod placement.
+
+**Troubleshooting & Resolution:**
+- Review pod affinity and anti-affinity rules
+- Check node distribution of pods
+- Identify over-constrained scheduling rules
+- Relax affinity rules if possible
+- Use topology spread constraints
+- Balance performance and availability
+
+---
+
+## Question 14: Pod Not Receiving IP (CNI Troubleshoot)
+
+**Problem:**  
+Pod is created but does not get an IP address.
+
+**Troubleshooting & Resolution:**
+- Check pod events for CNI errors
+- Inspect CNI plugin pods (Calico, Cilium, Flannel)
+- Verify node has available IP addresses
+- Check CNI configuration files
+- Restart CNI pods if required
+- Fix CNI issues and reschedule pod
+
+---
+
+## Question 15: ReplicaSet Not Creating Pods
+
+**Problem:**  
+ReplicaSet exists but pods are not created.
+
+**Troubleshooting & Resolution:**
+- Check ReplicaSet status and events
+- Verify replica count
+- Ensure selector labels match pod template labels
+- Check admission controllers or policies
+- Validate resource availability
+- Correct configuration and reapply
+
+---
+
+## Question 16: Deployment Rollback Not Working
+
+**Problem:**  
+Rollback command executes but application does not revert.
+
+**Troubleshooting & Resolution:**
+- Check rollout history
+- Verify previous revision exists
+- Confirm `revisionHistoryLimit` is not too low
+- Check if deployment is paused
+- Validate image and configuration differences
+- Fix rollout settings and retry rollback
+
+---
+
+## Question 17: Paused Deployment Stuck
+
+**Problem:**  
+Deployment remains paused and does not proceed.
+
+**Troubleshooting & Resolution:**
+- Check deployment status for paused condition
+- Resume deployment using rollout resume
+- Review CI/CD pipeline logic
+- Ensure no manual pause was left unintentionally
+- Monitor rollout progress after resume
+
+---
+
+## Question 18: Blue-Green Traffic Still Routed to Old Pods
+
+**Problem:**  
+Traffic continues hitting old version after blue-green deployment.
+
+**Troubleshooting & Resolution:**
+- Verify service selector labels
+- Check ingress or load balancer routing rules
+- Confirm new pods are ready
+- Update service to point to new version
+- Validate DNS or cache behavior
+- Switch traffic cleanly and monitor
+
+---
+
+## Question 19: Canary Pods Receiving All Traffic
+
+**Problem:**  
+Canary pods receive 100% traffic instead of partial traffic.
+
+**Troubleshooting & Resolution:**
+- Check ingress or service routing rules
+- Validate traffic weight configuration
+- Ensure labels are correct
+- Review service mesh configuration (Istio/Linkerd)
+- Fix routing rules to split traffic properly
+- Monitor traffic distribution
+
+---
+
+## Question 20: Image Update Ignored (No Rollout Triggered)
+
+**Problem:**  
+New image is pushed but deployment does not restart.
+
+**Troubleshooting & Resolution:**
+- Verify image tag is updated
+- Avoid using `latest` tag
+- Check imagePullPolicy
+- Confirm deployment spec change occurred
+- Force rollout restart if needed
+- Use immutable image tags for deployments
+
+---
+
+✅ **This document is ideal for Kubernetes interviews, real-time troubleshooting, and DevOps/SRE preparation.**
+
+---
