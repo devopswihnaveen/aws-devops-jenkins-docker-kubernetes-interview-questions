@@ -592,6 +592,164 @@ New image is pushed but deployment does not restart.
 
 ---
 
+## Question 21: Deployment scaled but missing replicas
+
+**Problem:**  
+Deployment shows desired replicas increased, but actual running pods are fewer.
+
+**Troubleshooting & Resolution:**
+- Check deployment status and conditions
+- Describe pods to inspect scheduling events
+- Look for insufficient CPU or memory errors
+- Verify node availability and readiness
+- Check PodDisruptionBudgets blocking scale-up
+- Validate resource requests and limits
+- Add nodes or adjust resource configuration
+
+---
+
+## Question 22: Downtime during rolling update
+
+**Problem:**  
+Users experience downtime while rolling updates are in progress.
+
+**Troubleshooting & Resolution:**
+- Check rolling update strategy configuration
+- Verify maxUnavailable and maxSurge values
+- Ensure readiness probes are configured correctly
+- Confirm old pods are not terminated before new pods become ready
+- Check load balancer and service health checks
+- Adjust rollout strategy to ensure zero-downtime deployments
+
+---
+
+## Question 23: ClusterIP unreachable inside cluster
+
+**Problem:**  
+Service ClusterIP cannot be accessed from within the cluster.
+
+**Troubleshooting & Resolution:**
+- Verify service exists and is in correct namespace
+- Check service selector labels match pod labels
+- Inspect service endpoints
+- Verify kube-proxy is running on nodes
+- Check NetworkPolicies blocking traffic
+- Fix selectors or networking rules
+
+---
+
+## Question 24: ClusterIP resolves but connection refused
+
+**Problem:**  
+Service DNS resolves, but connection is refused.
+
+**Troubleshooting & Resolution:**
+- Check container is listening on correct port
+- Verify targetPort matches containerPort
+- Inspect pod logs for application startup issues
+- Check readiness probe failures
+- Validate firewall or network policy rules
+- Fix port mappings or application config
+
+---
+
+## Question 25: NodePort works on one node only
+
+**Problem:**  
+NodePort service is reachable only via one node IP.
+
+**Troubleshooting & Resolution:**
+- Check if pods are running on multiple nodes
+- Verify kube-proxy configuration
+- Ensure external traffic policy is correctly set
+- Check node firewall or security group rules
+- Confirm all nodes allow NodePort traffic
+- Fix networking or security configuration
+
+---
+
+## Question 26: NodePort not accessible externally
+
+**Problem:**  
+NodePort service cannot be accessed from outside the cluster.
+
+**Troubleshooting & Resolution:**
+- Verify NodePort range is open on firewall
+- Check cloud security groups or NACLs
+- Ensure correct node IP is used
+- Validate service type is NodePort
+- Confirm application is listening on correct port
+- Fix external access rules
+
+---
+
+## Question 27: Traffic going to pods on one node only
+
+**Problem:**  
+All traffic is routed to pods on a single node.
+
+**Troubleshooting & Resolution:**
+- Check service load balancing behavior
+- Verify pod distribution across nodes
+- Check session affinity settings
+- Inspect externalTrafficPolicy configuration
+- Validate ingress or load balancer setup
+- Adjust service or traffic policy
+
+---
+
+## Question 28: Service works via Pod IP, not Service name
+
+**Problem:**  
+Application is reachable using pod IP but not via service DNS name.
+
+**Troubleshooting & Resolution:**
+- Verify service DNS name and namespace
+- Check CoreDNS pod health
+- Inspect service endpoints
+- Validate service selector labels
+- Test DNS resolution inside the pod
+- Fix service or DNS configuration
+
+---
+
+## Question 29: Headless service returns no DNS records
+
+**Problem:**  
+Headless service does not return DNS entries.
+
+**Troubleshooting & Resolution:**
+- Verify service is defined with clusterIP: None
+- Check pod readiness status
+- Ensure pods match service selector
+- Validate StatefulSet configuration
+- Check CoreDNS logs
+- Fix service or pod labels
+
+---
+
+## Question 30: Pods stuck in ContainerCreating
+
+**Problem:**  
+Pods remain in ContainerCreating state for long time.
+
+**Troubleshooting & Resolution:**
+- Describe pod to inspect events
+- Check image pull status
+- Verify volume mounts and PVC binding
+- Inspect CNI plugin health
+- Check node disk pressure
+- Resolve underlying issue and reschedule pod
+
+---
+
 ✅ **This document is ideal for Kubernetes interviews, real-time troubleshooting, and DevOps/SRE preparation.**
 
 ---
+
+## Author
+**Velanati Naveen Kumar**
+- DevOps Engineer  
+- CI/CD | AWS | Kubernetes | Terraform | GitOps | Automation
+- Connect with me: [LinkedIn](https://www.linkedin.com/in/naveenvelanati/)
+- 📞 +91 9848545101
