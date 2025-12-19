@@ -66,7 +66,7 @@
 
 ---
 
-## ☸️ Kubernetes / AKS
+## ☸️ Kubernetes / EKS / AKS
 
 ### 6. How do you troubleshoot a CrashLoopBackOff? What are the common causes?
 
@@ -139,7 +139,7 @@
 
 ---
 
-### 12. How do you secure a public AKS/Kubernetes cluster?
+### 12. How do you secure a public EKS/AKS/Kubernetes cluster?
 
 **Answer:**
 - Enable RBAC and least privilege
